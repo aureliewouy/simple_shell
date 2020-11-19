@@ -9,4 +9,12 @@
 #include <string.h>
 #include <sys/stat.h>
 
+/*basic shell*/
+void create_child_pid(char **av, char **argv);
+int print_env(char **environ);
+void print_string(char *env);
+
+/*string manipulation functions*/
+char *_strdup(char *str);
+
 #endif
