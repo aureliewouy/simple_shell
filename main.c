@@ -15,15 +15,14 @@ int main(int argc, char **argv)
 	pid_t child_pid;
 	char *token;
 	char *av[] = {"", NULL};
-	struct stat st;
-	int i = -1;
 	(void)argc;
 
 	while (1)
 	{
 		write(STDOUT_FILENO, "#cisfun$ ", 9);
 		buffer = (char *)malloc(bufsize * sizeof(char));
-		getline(&buffer, &bufsize, stdin);
+		if (getline(&buffer, &bufsize, stdin) == EOF)
+			return(0);
 		token = strtok(buffer, "\n");
 		av[0] = token;
 		token = strtok(NULL, "\n");
@@ -41,12 +40,7 @@ int main(int argc, char **argv)
 		else
 		{
 			wait(NULL);
-			if (stat(argv[i], &st) != 0)
-			{
-				return (0);
-			}
 		}
-		i++;
 	}
 	return (0);
 }
