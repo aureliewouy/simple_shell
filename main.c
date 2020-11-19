@@ -21,9 +21,9 @@ int main(int argc, char **argv)
 		i = 0;
 		write(STDOUT_FILENO, "#cisfun$ ", 9);
 		if (getline(&buffer, &bufsize, stdin) == EOF)
-			return(0);
+			return (0);
 		token = strtok(buffer, delim);/*split string with the delim*/
-		while(token != NULL) /*gets another elements the string*/
+		while (token != NULL) /*gets another elements the string*/
 		{
 			av[i] = token;
 			token = strtok(NULL, delim);

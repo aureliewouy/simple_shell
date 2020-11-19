@@ -8,7 +8,9 @@ void create_child_pid(char **av, char **argv)
 {
 	pid_t child_pid;
 	int status;
+
 	child_pid = fork(); /*create a child pid*/
+
 	if (child_pid == -1)
 	{
 		perror(argv[0]);

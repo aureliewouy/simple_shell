@@ -1,5 +1,4 @@
-#include "holberton.h" 
-
+#include "holberton.h"
 /**
  * print_env - implement the env built-in, that prints tha current environment
  * @environ: environment variable
@@ -7,9 +6,9 @@
  */
 int print_env(char **environ)
 {
-	int i; 
+	int i;
 
-	for (i = 0; environ[i] != NULL; i++) 
+	for (i = 0; environ[i] != NULL; i++)
 	{
 		print_string(environ[i]);
 		write(STDOUT_FILENO, "\n", 1);
@@ -30,10 +29,3 @@ void print_string(char *environ)
 		write(STDOUT_FILENO, environ, i);
 	}
 }
-
-int main(void) 
-{
-	
-	return 0;
-}
-
