@@ -22,12 +22,12 @@ void free_grid(char **grid);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 /*basic shell*/
-
+void print_string(char *env);
+int print_env(char **env);
+void built_in(char **av, char **env);
 void create_child_pid(char **av, char **argv);
 char *_getenv(char *name);
 char **array_directory_path(char *path_folder[]);
 char *verify_path(char **av);
-void print_string(char *env);
-int print_env(char **environ);
 
 #endif

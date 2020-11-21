@@ -33,11 +33,7 @@ int main(int argc, char **argv)
 			i++;
 		}
 		av[i] = NULL;
-		if (_strcmp("exit", av[0]) == 0)
-		{
-			free(av);
-			exit(0);
-		}
+		built_in(av, environ);
 		av[0] = verify_path(av);
 		create_child_pid(av, argv);
 		buffer = NULL;
