@@ -44,6 +44,7 @@ char *verify_path(char **av)
 	char **path_f;
 	struct stat st;
 	int i;
+	int len_pf;
 
 	/*check if the command exist*/
 	if (stat(av[0], &st) == 0)
@@ -61,7 +62,8 @@ char *verify_path(char **av)
 	/*go through all the directories of the PATH*/
 	while (path_f[i])
 	{
-		path_f[i] = realloc(path_f[i], _strlen(path_f[i]) + _strlen(av[0]) + 2);
+		len_pf = _strlen(path_f[i]);
+		path_f[i] = realloc(path_f[i], len_pf + _strlen(av[0]) + 2);
 		path_f[i] = _strcat(path_f[i], "/");
 		path_f[i] = _strcat(path_f[i], av[0]);
 
