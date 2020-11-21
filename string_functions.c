@@ -29,3 +29,66 @@ char *_strdup(char *str)
 	new_s[i] = '\0';
 	return (new_s);
 }
+/**
+ * _strlen - returns the lenght of a string
+ * @s : the string that we will find the length
+ *
+ * Return: Always 0.
+ */
+
+int _strlen(char *s)
+{
+	int n = 0;
+
+	while (s[n])
+	{
+		++n;
+	}
+	return (n);
+}
+
+/**
+ * *_strcat - appends the src string to thr dest string
+ * @dest : the destination string
+ * @src : the source string
+ *
+ * Return: Always 0.
+ */
+
+char *_strcat(char *dest, char *src)
+{
+
+	int i;
+	int dest_len = _strlen(dest);
+
+	for (i = 0 ; src[i] != '\0' ; i++)
+		dest[dest_len + i] = src[i];
+	dest[dest_len + i] = '\0';
+
+	return (dest);
+}
+
+/**
+ * _strcmp - Compare two strings
+ * @s1 : the destination string
+ * @s2 : the source string
+ *
+ * Return: Always 0.
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	while ((*s1 != '\0' && *s2 != '\0') && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	if (*s1 == *s2)
+	{
+		return (0);
+	}
+	else
+	{
+		return (*s1 - *s2);
+	}
+}
