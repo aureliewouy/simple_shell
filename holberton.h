@@ -19,6 +19,7 @@ int _strcmp(char *s1, char *s2);
 
 /*Free and malloc */
 void free_grid(char **grid);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 /*basic shell*/
 
