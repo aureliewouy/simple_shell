@@ -9,6 +9,8 @@
 #include <string.h>
 #include <sys/stat.h>
 
+extern char** environ;
+
 /*string manipulation functions*/
 char *_strdup(char *str);
 int _strlen(char *s);

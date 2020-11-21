@@ -20,7 +20,7 @@ char *_getenv(const char *name)
 		/*selects the part of the line before =*/
 		value = strtok(environ_string, "=");
 		/*compare two strings*/
-		if (_strcmp(name, value) == 0)
+		if (_strcmp(_strdup(name), value) == 0)
 		{
 			return (strtok(NULL, "="));
 		}
