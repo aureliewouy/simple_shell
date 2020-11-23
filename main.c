@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		token = strtok(buffer, delim);
 		while (token != NULL)
 		{
-			av[i] = token;
+			av[i] = _strdup(token);
 			token = strtok(NULL, delim);
 			i++;
 		}
