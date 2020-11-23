@@ -18,7 +18,7 @@ void create_child_pid(char **av, char **argv)
 	}
 	if (child_pid == 0) /*exec the program*/
 	{
-		if (execve(av[0], av, NULL) == -1)
+		if (execve(av[0], av, environ) == -1)
 			perror(argv[0]);
 	}
 	else
