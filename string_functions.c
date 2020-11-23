@@ -40,9 +40,12 @@ int _strlen(char *s)
 {
 	int n = 0;
 
-	while (s[n])
+	if (s)
 	{
-		++n;
+		while (s[n])
+		{
+			n++;
+		}
 	}
 	return (n);
 }
@@ -58,14 +61,22 @@ int _strlen(char *s)
 char *_strcat(char *dest, char *src)
 {
 
-	int i;
+	int i, j;
 	int dest_len = _strlen(dest);
+	int src_len = _strlen(src);
+	int total_len;
+	char *final;
 
-	for (i = 0 ; src[i] != '\0' ; i++)
-		dest[dest_len + i] = src[i];
-	dest[dest_len + i] = '\0';
-
-	return (dest);
+	total_len = dest_len + src_len;
+	final = (char *)malloc(sizeof(char) * total_len + 1);
+	for (i = 0 ; dest[i] != '\0' ; i++)
+		final[i] = dest[i];
+	for (j = 0 ; src[j] != '\0' ; j++, i++)
+		final[i] = src[j];
+	final[i] = '\0';
+	if (dest != NULL)
+		free(dest);
+	return (final);
 }
 
 /**

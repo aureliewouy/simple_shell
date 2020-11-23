@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * array_directory_path - create an array of the directories path's
  *
@@ -44,7 +45,6 @@ char *verify_path(char **av)
 	char **path_f;
 	struct stat st;
 	int i;
-	int len_pf;
 
 	/*check if the command exist*/
 	if (stat(av[0], &st) == 0)
@@ -55,15 +55,13 @@ char *verify_path(char **av)
 	if (path_f == NULL)
 	{
 		free(folder_path);
-		free_grid(path_f);
 		return (NULL);
 	}
 	i = 0;
+
 	/*go through all the directories of the PATH*/
 	while (path_f[i])
 	{
-		len_pf = _strlen(path_f[i]);
-		path_f[i] = realloc(path_f[i], len_pf + _strlen(av[0]) + 2);
 		path_f[i] = _strcat(path_f[i], "/");
 		path_f[i] = _strcat(path_f[i], av[0]);
 
@@ -75,7 +73,12 @@ char *verify_path(char **av)
 		}
 		i++;
 	}
-	free_grid(path_f);
-	free(folder_path);
+
+	if (path_f != NULL)
+		free_grid(path_f);
+
+	if (folder_path != NULL)
+		free(folder_path);
+
 	return (av[0]);
 }
