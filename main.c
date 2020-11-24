@@ -39,6 +39,7 @@ int main(int argc, char **argv)
 		built_in(av, environ);
 		av[0] = verify_path(av);
 		create_child_pid(av, argv);
+		free(buffer);
 		buffer = NULL;
 		free_grid(av);
 		free(token);
