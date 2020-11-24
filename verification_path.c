@@ -58,27 +58,23 @@ char *verify_path(char **av)
 		return (NULL);
 	}
 	i = 0;
-
 	/*go through all the directories of the PATH*/
 	while (path_f[i])
 	{
 		path_f[i] = _strcat(path_f[i], "/");
 		path_f[i] = _strcat(path_f[i], av[0]);
-
 		/*if the command exist, remplace by the path folder*/
 		if (stat(path_f[i], &st) == 0)
 		{
+			free(av[0]);
 			av[0] = _strdup(path_f[i]);
 			break;
 		}
 		i++;
 	}
-
 	if (path_f != NULL)
 		free_grid(path_f);
-
 	if (folder_path != NULL)
 		free(folder_path);
-
 	return (av[0]);
 }

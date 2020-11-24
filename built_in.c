@@ -10,7 +10,7 @@ void built_in(char **av, char **env)
 {
 	if (_strcmp(av[0], "exit") == 0)
 	{
-		free(av);
+		free_grid(av);
 		exit(0);
 	}
 	if (_strcmp(av[0], "env") == 0)

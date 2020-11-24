@@ -10,6 +10,7 @@
 char *_getenv(char *name)
 {
 	char *environ_string;
+	char *result = NULL;
 	char *value = NULL;
 	int i = 0;
 
@@ -20,13 +21,13 @@ char *_getenv(char *name)
 		/*selects the part of the line before =*/
 		value = strtok(environ_string, "=");
 		/*compare two strings*/
-		if (_strcmp(_strdup(name), value) == 0)
+		if (_strcmp(name, value) == 0)
 		{
-			return (strtok(NULL, "="));
+			result = strtok(NULL, "=");
+			return (result);
 		}
 		i++;
-		/*environ[i] = environ_string;*/
 		free(environ_string);
 	}
-	return (NULL);
+	return (result);
 }
