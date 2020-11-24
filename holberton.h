@@ -21,6 +21,7 @@ int _strcmp(char *s1, char *s2);
 void free_grid(char **grid);
 
 /*basic shell*/
+void handle_sigint(int sig);
 void print_string(char *env);
 int print_env(char **env);
 void built_in(char **av, char **env);

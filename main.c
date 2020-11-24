@@ -17,11 +17,14 @@ int main(int argc, char **argv)
 	(void)argc;
 	delim = " \n";
 
+
+	if (signal(SIGINT, handle_sigint) == SIG_ERR)
+		perror("error:\n");
 	/*shell runs in an infinite loop*/
 	while (1)
 	{
 		i = 0;
-		write(STDOUT_FILENO, "#cisfun$ ", 9);
+		write(STDOUT_FILENO, "$ ", 2);
 		if (getline(&buffer, &bufsize, stdin) == EOF)
 			return (0);
 		av = malloc(bufsize * sizeof(char *));
@@ -33,6 +36,7 @@ int main(int argc, char **argv)
 			i++;
 		}
 		av[i] = NULL;
+
 		built_in(av, environ);
 		av[0] = verify_path(av);
 		create_child_pid(av, argv);
