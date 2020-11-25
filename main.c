@@ -24,7 +24,8 @@ int main(int argc, char **argv)
 	while (1)
 	{
 		i = 0;
-		write(STDOUT_FILENO, "$ ", 2);
+		if (isatty(STDIN_FILENO) == 1)
+			write(STDOUT_FILENO, "$ ", 2);
 		if (getline(&buffer, &bufsize, stdin) == EOF)
 			return (0);
 		av = malloc(bufsize * sizeof(char *));
