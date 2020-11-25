@@ -1,15 +1,28 @@
 .TH Simple Shell "November 21, 2020" "version 0.01"
 .SH NAME
-.B Simple Shell - a simple UNIX command interpreter in C.
+.B Simple Shell - a simple UNIX command interpreter in C, that executes commands read from the standard input.
 .SH SYNOPSIS
 #include "holberton.h"
 .br
 Simple shell [command] [file]
 .SH DESCRIPTION
-The simple shell interprets user commands, directly entered by the user. Any text seperated by a single space is considered to be an argument. 
+The simple shell interprets user commands, directly entered by the user. It's displays a prompt and wait for the user to type a command. A command line always ends with a new line. The prompt is displayed again each time a command has been executed. Any text seperated by a single space is considered to be an argument. If an executable cannot be found, print an error message and display the prompt again. 
+.br
+It handles Ctrl+C and doesn't quit when the user inputs ^C.
+.PP
+.B Simple Commands
+.br
+A simple command is a sequence of optional variable assignments followed by blank-separated words and redirections, and terminated by a control operator. The first word specifies the command to be executed, and is passed as argument zero. The remaining words are passed as arguments to the invoked command.
+.PP
+.B The return value
+of a simple command is its exit status.
+.br
 .B hsh
-Hsh is the executable that will interpret the command. 
+Hsh is the executable that will interpret the command.
 .SH INTEREACTIVE MODE EXAMPLE
+.PP
+.PP
+An interactive shell reads commands from user input on a tty (teletypewriter). Among other things, such a shell reads startup files on activation, displays a prompt, and enables job control by default. The user can interact with the shell.
 .PP
 $ ./hsh
 .br
@@ -25,6 +38,8 @@ $
 .PP
 .SH NON-INTERACTIVE MODE EXAMPLE
 .PP
+A non-interactive shell is a shell that can not interact with the user.
+.PP
 $ echo "/bin/ls" | . /hsh
 .br
 hsh main.c shell.c
@@ -36,10 +51,10 @@ When the simple shell is invoked, it is given an array of strings. This is an en
 The following commands below are called and handled directly in the shell. Therefore, these commands do not need to call upon a child process to be executed. 
 .TP
 .B exit
-- Exits the shell
+- Exits the shell, we don't handle any argument of the built-in
 .TP
 .B env
-- Prints the variables from the current enviroment
+- Prints the variables from the current enviroment, we don't handle any argument of the built-in
 .SH BUGS
 No known bugs
 .SH AUTHORS
