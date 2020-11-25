@@ -23,7 +23,7 @@ char *_getenv(char *name)
 		if ((environ[i][j] == '=') && (name[j] == '\0'))
 		{
 			/*setting a pointer to the first char of the value*/
-			value = strdup(environ[i] + j + 1);
+			value = _strdup(environ[i] + j + 1);
 			break;
 		}
 		i++;
