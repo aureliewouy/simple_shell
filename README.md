@@ -186,63 +186,62 @@ When done, please add all urls below (blog post, LinkedIn post, etc.)
 ## Examples
 
 ```
-vagrant@vagrant-ubuntu-trusty-64:~/simple_shell$ vagrant@vagrant-ubuntu-trusty-64:~/simple_shell$ sh
-$ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
-$ ./hsh
-#cisfun$ ls
-AUTHORS    Test       a.out       create_child_pid.c  holberton.h  main.c              print_env.c         verification_path.c
-README.md  _getenv.c  built_in.c  free_grid.c         hsh          man_1_simple_shell  string_functions.c
-#cisfun$ /bin/ls
-AUTHORS    Test       a.out       create_child_pid.c  holberton.h  main.c              print_env.c         verification_path.c
-README.md  _getenv.c  built_in.c  free_grid.c         hsh          man_1_simple_shell  string_functions.c
-#cisfun$ /bin/ls -l
-total 84
--rw-rw-r-- 1 vagrant vagrant   220 Nov 20 16:38 AUTHORS
--rw-rw-r-- 1 vagrant vagrant  5877 Nov 22 13:48 README.md
-drwxrwxr-x 2 vagrant vagrant  4096 Nov 20 11:21 Test
--rw-rw-r-- 1 vagrant vagrant   675 Nov 21 15:17 _getenv.c
+vagrant@vagrant-ubuntu-trusty-64:~/simple_shell$ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+vagrant@vagrant-ubuntu-trusty-64:~/simple_shell$ ./hsh
+$ ls
+a.out    built_in.c          free_grid.c  handle_sigint.c  hsh     man_1_simple_shell  README.md           Test
+AUTHORS  create_child_pid.c  _getenv.c    holberton.h      main.c  print_env.c         string_functions.c  verification_path.c
+$ /bin/ls
+a.out    built_in.c          free_grid.c  handle_sigint.c  hsh     man_1_simple_shell  README.md           Test
+AUTHORS  create_child_pid.c  _getenv.c    holberton.h      main.c  print_env.c         string_functions.c  verification_path.c
+$ /bin/ls -l
+total 92
 -rwxrwxr-x 1 vagrant vagrant  8973 Nov 19 13:47 a.out
--rw-rw-r-- 1 vagrant vagrant   323 Nov 21 16:14 built_in.c
--rw-rw-r-- 1 vagrant vagrant   496 Nov 19 15:53 create_child_pid.c
+-rw-rw-r-- 1 vagrant vagrant   220 Nov 20 16:38 AUTHORS
+-rw-rw-r-- 1 vagrant vagrant   403 Nov 25 13:30 built_in.c
+-rw-rw-r-- 1 vagrant vagrant   513 Nov 24 13:24 create_child_pid.c
 -rw-rw-r-- 1 vagrant vagrant   227 Nov 21 13:35 free_grid.c
--rw-rw-r-- 1 vagrant vagrant   763 Nov 21 16:12 holberton.h
--rwxrwxr-x 1 vagrant vagrant 14068 Nov 22 13:49 hsh
--rw-rw-r-- 1 vagrant vagrant   829 Nov 21 16:16 main.c
--rw-rw-r-- 1 vagrant vagrant  1084 Nov 21 12:06 man_1_simple_shell
+-rw-rw-r-- 1 vagrant vagrant   648 Nov 25 13:19 _getenv.c
+-rw-rw-r-- 1 vagrant vagrant   184 Nov 24 09:59 handle_sigint.c
+-rw-rw-r-- 1 vagrant vagrant   733 Nov 25 13:30 holberton.h
+-rwxrwxr-x 1 vagrant vagrant 14197 Nov 25 16:08 hsh
+-rw-rw-r-- 1 vagrant vagrant   995 Nov 25 15:15 main.c
+-rw-rw-r-- 1 vagrant vagrant  2282 Nov 25 16:03 man_1_simple_shell
 -rw-rw-r-- 1 vagrant vagrant   562 Nov 21 16:15 print_env.c
--rw-rw-r-- 1 vagrant vagrant  1384 Nov 21 12:12 string_functions.c
--rw-rw-r-- 1 vagrant vagrant  1970 Nov 21 15:41 verification_path.c
-#cisfun$ ls -l /tmp
+-rw-rw-r-- 1 vagrant vagrant  9423 Nov 25 16:07 README.md
+-rw-rw-r-- 1 vagrant vagrant  1629 Nov 25 11:31 string_functions.c
+drwxrwxr-x 2 vagrant vagrant  4096 Nov 20 11:21 Test
+-rw-rw-r-- 1 vagrant vagrant  1920 Nov 25 12:30 verification_path.c
+$ ls -l /tmp
 total 0
-#cisfun$
+$
 ```
 ```
-#cisfun$ env
-LESSOPEN=| /usr/bin/lesspipe %s
-MAIL=/var/mail/vagrant
-SSH_CLIENT=10.0.2.2 50237 22
+$ env
+XDG_SESSION_ID=2
+TERM=xterm-256color
+SHELL=/bin/bash
+SSH_CLIENT=10.0.2.2 56568 22
+SSH_TTY=/dev/pts/0
 USER=vagrant
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
+MAIL=/var/mail/vagrant
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+PWD=/home/vagrant/simple_shell
+LANG=en_US.UTF-8
 SHLVL=1
 HOME=/home/vagrant
-OLDPWD=/home/vagrant
-SSH_TTY=/dev/pts/0
 LOGNAME=vagrant
-_=hsh
-XDG_SESSION_ID=3
-TERM=xterm-256color
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+SSH_CONNECTION=10.0.2.2 56568 10.0.2.15 22
+LESSOPEN=| /usr/bin/lesspipe %s
 XDG_RUNTIME_DIR=/run/user/1000
-LANG=en_US.UTF-8
-LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
-SHELL=/bin/bash
 LESSCLOSE=/usr/bin/lesspipe %s %s
-PWD=/home/vagrant/simple_shell
-SSH_CONNECTION=10.0.2.2 50237 10.0.2.15 22
-#cisfun$
+OLDPWD=/home/vagrant
+_=./hsh
+$
 ```
 
 ```
-#cisfun$ exit
 $ exit
 vagrant@vagrant-ubuntu-trusty-64:~/simple_shell$
 ```
