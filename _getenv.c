@@ -2,32 +2,31 @@
 
 /**
  * _getenv - gets an environment variable
- * get value after "=""
- * @name: name of the variable user enter
+ * get value after "=" (name = value)
+ * @name: name of the variable from user's enter
  *
  * Return: pointer to a string (value of the variable)
  */
 char *_getenv(char *name)
 {
-	char *environ_string;
-	char *result = NULL;
-	char *value = NULL;
 	int i = 0;
+	int j;
+	char *value = NULL;
 
-	while (environ[i] != '\0')
+	while (environ[i])
 	{
-		/*from array to the chain of characters*/
-		environ_string = _strdup(environ[i]);
-		/*selects the part of the line before =*/
-		value = strtok(environ_string, "=");
-		/*compare two strings*/
-		if (_strcmp(name, value) == 0)
+		j = 0;
+		/*compare the user's name and the names at the PATH char par char*/
+		while (environ[i][j] == name[j] && name[j] != '\0')
+			j++;
+
+		if ((environ[i][j] == '=') && (name[j] == '\0'))
 		{
-			result = strtok(NULL, "=");
-			return (result);
+			/*setting a pointer to the first char of the value*/
+			value = strdup(environ[i] + j + 1);
+			break;
 		}
 		i++;
-		free(environ_string);
 	}
-	return (result);
+	return (value);
 }

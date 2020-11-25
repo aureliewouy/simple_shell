@@ -28,6 +28,7 @@ char **array_directory_path(char *path_folder[])
 	}
 	/*the last elem of the array of the strings*/
 	path_folder[i] = NULL;
+	free(path);
 	return (path_folder);
 }
 
