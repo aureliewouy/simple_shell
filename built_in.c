@@ -5,14 +5,18 @@
  *
  * @av: the arguments which passed
  * @env: the environment variable
+ * @buffer: the buffer of the command.
  */
-void built_in(char **av, char **env)
+void built_in(char **av, char **env, char *buffer)
 {
 	if (_strcmp(av[0], "exit") == 0)
 	{
+		free(buffer);
 		free_grid(av);
 		exit(0);
 	}
 	if (_strcmp(av[0], "env") == 0)
+	{
 		print_env(env);
+	}
 }

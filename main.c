@@ -36,13 +36,13 @@ int main(int argc, char **argv)
 			i++;
 		}
 		av[i] = NULL;
-		built_in(av, environ);
+		built_in(av, environ, buffer);
 		av[0] = verify_path(av);
 		create_child_pid(av, argv);
+		free(token);
 		free(buffer);
 		buffer = NULL;
 		free_grid(av);
-		free(token);
 	}
 	return (0);
 }
