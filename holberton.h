@@ -22,9 +22,8 @@ void free_grid(char **grid);
 
 /*basic shell*/
 void handle_sigint(int sig);
-void print_string(char *env);
-int print_env(char **env);
-void built_in(char **av, char **env, char *buffer);
+int print_env(void);
+int built_in(char **av, char *buffer);
 void create_child_pid(char **av, char **argv);
 char *_getenv(char *name);
 char **array_directory_path(char *path_folder[]);

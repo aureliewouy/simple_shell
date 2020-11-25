@@ -17,7 +17,6 @@ int main(int argc, char **argv)
 	(void)argc;
 	delim = " \n";
 
-
 	if (signal(SIGINT, handle_sigint) == SIG_ERR)
 		perror("error:\n");
 	/*shell runs in an infinite loop*/
@@ -40,10 +39,11 @@ int main(int argc, char **argv)
 			i++;
 		}
 		av[i] = NULL;
-		built_in(av, environ, buffer);
-		av[0] = verify_path(av);
-		create_child_pid(av, argv);
-		free(token);
+		if (built_in(av, buffer) == 1)
+		{
+			av[0] = verify_path(av);
+			create_child_pid(av, argv);
+		}
 		free(buffer);
 		buffer = NULL;
 		free_grid(av);
